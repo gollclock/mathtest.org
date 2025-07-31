@@ -1,38 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Free Robux!</title>
-    <style>
-        body {
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: black;
-            color: white;
-            font-family: Arial, sans-serif;
-            flex-direction: column;
-            text-align: center;
-        }
-        h1 {
-            margin-bottom: 20px;
-        }
-        .video-link {
-            color: #00f;
-            text-decoration: underline;
-            font-size: 1.5rem;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YouTube Search Portal</title>
+  <style>
+    body {
+      background-color: #111;
+      color: lime;
+      font-family: 'Courier New', monospace;
+      text-align: center;
+      padding-top: 100px;
+    }
+    h1 {
+      font-size: 36px;
+      text-shadow: 0 0 10px lime;
+    }
+    input {
+      padding: 10px;
+      font-size: 20px;
+      width: 300px;
+      background-color: #222;
+      color: lime;
+      border: 2px solid lime;
+      margin-bottom: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      background-color: lime;
+      color: black;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 0 10px lime;
+    }
+    button:hover {
+      background-color: #0f0;
+    }
+  </style>
 </head>
 <body>
-    <h1>🎮 Free Robux Giveaway 🎮</h1>
-    <p>Click the link below to learn more:</p>
-    <a class="video-link" href="https://www.youtube.com/watch?v=q-Y0bnx6Ndw" target="_blank">
-        Get Free Robux!
-    </a>
-    <p>Get ready for a surprise! 😄</p>
+  <h1 id="searchHeader">Search YouTube</h1>
+  <input type="text" id="searchInput" placeholder="Type your query..." />
+  <br />
+  <button onclick="goToYouTube()">Go</button>
+
+  <script>
+    function goToYouTube() {
+      const query = document.getElementById("searchInput").value;
+      if (query.trim() === "") return;
+      document.getElementById("searchHeader").textContent = `You searched: "${query}"`;
+      const youtubeURL = `https://www.youtube.com/results?search_query=${encodeURIComponent(query)}`;
+      window.open(youtubeURL, '_blank');
+    }
+  </script>
 </body>
 </html>
